@@ -53,6 +53,7 @@ function autoMoveLogs() {
     moveLogRight(logRight)
   })
   lose()
+  win()
 }
 
 function moveLogLeft(logLeft) {
@@ -116,6 +117,7 @@ function autoMoveCars() {
     moveCarRight(carRight)
   })
   lose()
+  win()
 }
 
 function moveCarLeft(carLeft) {
@@ -154,14 +156,29 @@ function moveCarRight(carRight) {
 
 
 function lose() {
-  if (squares[currentSquare].classList.contains('c1')) {
-    resultDisplay.textContent = 'You lose!'
-    clearInterval(timerIdLogs)
-    clearInterval(timerIdCars)
-    squares[currentSquare].classList.remove('tomato')
-    document.removeEventListener('keyup', moveTomato)
+  if (
+      squares[currentSquare].classList.contains('c1') ||
+      squares[currentSquare].classList.contains('l4') ||
+      squares[currentSquare].classList.contains('l5')
+  ) {
+      resultDisplay.textContent = 'You lose!'
+      clearInterval(timerIdLogs)
+      clearInterval(timerIdCars)
+      squares[currentSquare].classList.remove('tomato')
+      document.removeEventListener('keyup', moveTomato)
   }
+}
 
+function win() {
+  if (
+      squares[currentSquare].classList.contains('ending-block')
+  ) {
+      resultDisplay.textContent = 'You WIN!'
+      clearInterval(timerIdLogs)
+      clearInterval(timerIdCars)
+      // squares[currentSquare].classList.remove('tomato')
+      document.removeEventListener('keyup', moveTomato)
+  }
 }
 
 timerIdCars = setInterval(autoMoveCars, 1000)
