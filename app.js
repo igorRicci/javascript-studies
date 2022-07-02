@@ -13,21 +13,16 @@ function moveFrog(e) {
 
   switch (e.key) {
     case 'ArrowLeft':
-      console.log('move left');
       if (currentSquare % width !== 0) currentSquare -= 1;
       break
     case 'ArrowRight':
-      console.log('move right');
       if (currentSquare % width < (width - 1)) currentSquare += 1;
       break
     case 'ArrowUp':
-      console.log('move Up');
       if (currentSquare - width >= 0) currentSquare -= width;
       break
     case 'ArrowDown':
-      console.log('move Down');
-      if (currentSquare + width < 81) currentSquare += width;
-
+      if (currentSquare + width < width * width) currentSquare += width;
       break
     default:
       console.log('invalid key');

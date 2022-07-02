@@ -44,3 +44,25 @@ body {
 .tomato {
   background-color: rgb(201, 28, 28);
 }
+
+#link-yt {
+  text-align: center;
+  color: #d4d4d4;
+  text-decoration: none;
+  font-size: 1.8rem;
+  border: 1px solid #d4d4d4;
+  padding: 0.5rem 1.8rem;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#link-yt:hover {
+  color: #ffffff;
+  border: 1px solid white;
+}
+
+.link-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
