@@ -73,3 +73,11 @@ body {
 .l5, .l4 {
   background-color: lightseagreen;
 }
+
+.c1 {
+  background-color: black;
+}
+
+.c2, .c3 {
+  background-color: #575757;
+}
