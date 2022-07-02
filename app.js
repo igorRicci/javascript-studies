@@ -12,6 +12,7 @@ let currentSquare = 76
 const width = 9
 let timerIdLogs
 let timerIdCars
+let currentTime = 20
 
 function moveTomato(e) {
 
@@ -32,8 +33,6 @@ function moveTomato(e) {
       break
     default:
       console.log('invalid key');
-
-
   }
 
   // console.log(`Index: ${currentSquare}`);
@@ -46,6 +45,8 @@ function moveTomato(e) {
 document.addEventListener('keyup', moveTomato)
 
 function autoMoveLogs() {
+  currentTime--
+  timeLeftDispley.textContent = currentTime
   logsLeft.forEach((logLeft) => {
     moveLogLeft(logLeft)
   })
@@ -159,7 +160,8 @@ function lose() {
   if (
       squares[currentSquare].classList.contains('c1') ||
       squares[currentSquare].classList.contains('l4') ||
-      squares[currentSquare].classList.contains('l5')
+      squares[currentSquare].classList.contains('l5') ||
+      currentTime <= 0
   ) {
       resultDisplay.textContent = 'You lose!'
       clearInterval(timerIdLogs)
@@ -182,3 +184,11 @@ function win() {
 }
 
 timerIdCars = setInterval(autoMoveCars, 1000)
+
+mainButton.addEventListener('click', () => {
+  if (timerIdCars) {
+    clearInterval(timerIdCars)
+  } else {
+    timerIdCars = setInterval()
+  }
+})
