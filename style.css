@@ -41,10 +41,6 @@ body {
   background-color: rgb(137, 145, 144);
 }
 
-.tomato {
-  background-color: rgb(201, 28, 28);
-}
-
 #link-yt {
   text-align: center;
   color: #d4d4d4;
@@ -80,4 +76,8 @@ body {
 
 .c2, .c3 {
   background-color: #575757;
+}
+
+.tomato {
+  background-color: rgb(201, 28, 28);
 }
