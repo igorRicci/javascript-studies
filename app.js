@@ -3,8 +3,11 @@ const resultDisplay = document.querySelector('#result')
 const mainButton = document.querySelector('#main-button')
 const squares = document.querySelectorAll('.grid div')
 
+console.log(squares);
+let currentSquare = 0;
+
 function moveFrog() {
-  console.log('moved');
+  squares[currentSquare].classList.add('tomato')
 
 }
 
