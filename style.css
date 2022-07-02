@@ -15,9 +15,28 @@ body {
   width: 360px;
   display: flex;
   flex-wrap: wrap;
+  /* background-color: aliceblue; */
 }
 
 .grid div {
   height: 40px;
   width: 40px;
+}
+
+.ending-block {
+  background-color: rgb(43, 189, 29);
+}
+
+.starting-block {
+  background-color: rgb(58, 44, 247);
+}
+
+.log-left,
+.log-right {
+  background-color: lightseagreen;
+}
+
+.car-left,
+.car-right {
+  background-color: rgb(137, 145, 144);
 }
