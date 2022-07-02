@@ -5,7 +5,7 @@ const squares = document.querySelectorAll('.grid div')
 
 console.log(squares);
 let currentSquare = 76;
-const step = 9;
+const width = 9;
 
 function moveFrog(e) {
 
@@ -14,19 +14,20 @@ function moveFrog(e) {
   switch (e.key) {
     case 'ArrowLeft':
       console.log('move left');
-      currentSquare -= 1;
+      if (currentSquare % width !== 0) currentSquare -= 1;
       break
     case 'ArrowRight':
       console.log('move right');
-      currentSquare += 1;
+      if (currentSquare % width < (width - 1)) currentSquare += 1;
       break
     case 'ArrowUp':
       console.log('move Up');
-      currentSquare -= step;
+      if (currentSquare - width >= 0) currentSquare -= width;
       break
     case 'ArrowDown':
       console.log('move Down');
-      currentSquare += step;
+      if (currentSquare + width < 81) currentSquare += width;
+
       break
     default:
       console.log('invalid key');
@@ -34,6 +35,10 @@ function moveFrog(e) {
 
   }
 
+  console.log(`Index: ${currentSquare}`);
+  console.log(`Index / width: ${currentSquare % width}`);
+  console.log(`Width: ${width}`);
+  console.log(currentSquare % width < width - 1);
   squares[currentSquare].classList.add('tomato')
 
 }
