@@ -64,7 +64,7 @@ function moveLogLeft(logLeft) {
       logLeft.classList.add('l4')
       break
     case logLeft.classList.contains('l4') :
-      logLeft.classList.remove('l5')
+      logLeft.classList.remove('l4')
       logLeft.classList.add('l5')
       break
     case logLeft.classList.contains('l5') :
