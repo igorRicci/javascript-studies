@@ -31,10 +31,10 @@ body {
   background-color: rgb(58, 44, 247);
 }
 
-.log-left,
+/* .log-left,
 .log-right {
   background-color: lightseagreen;
-}
+} */
 
 .car-left,
 .car-right {
@@ -65,4 +65,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.l1, .l2, .l3 {
+  background-color: rgb(121, 28, 28);
+}
+
+.l5, .l4 {
+  background-color: lightseagreen;
 }
