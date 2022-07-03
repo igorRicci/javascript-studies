@@ -17,10 +17,12 @@ body {
   flex-wrap: wrap;
   background-color: #56c945e0;
 }
+
 #logo {
   /* background-color: red; */
   padding: 5px 10px;
-  margin: 0;
+  margin: 5px 0;
+  /* margin-bottom: 10px; */
 }
 
 #message {
@@ -58,9 +60,17 @@ body {
   margin-top: 10px;
 }
 
+h3.info {
+  font-size: 1.4rem;
+  margin: 5px 0;
+}
+
 .container {
-  width: 800px;
-  margin:  0 auto;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #link-yt:hover {
@@ -69,10 +79,10 @@ body {
 
 #main-button {
   color: #e6e6e6;
-  font-size: 20px;
+  font-size: 1.8rem;
   border-radius: 5px;
   background-color: #973636;
-  padding: 5px 15px;
+  padding: 8px 16px;
   text-decoration: none;
   border: 0;
   transition: 0.2s;
@@ -101,4 +111,8 @@ body {
 
 .tomato {
   background-color: rgb(201, 28, 28);
+}
+
+@media (max-width: 500px) {
+
 }
