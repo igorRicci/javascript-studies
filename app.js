@@ -7,17 +7,17 @@ const logsRight = document.querySelectorAll('.log-right')
 const carsLeft = document.querySelectorAll('.car-left')
 const carsRight = document.querySelectorAll('.car-right')
 
-console.log(squares)
+// console.log(squares)
 let currentSquare = 76
 const width = 9
-let timerIdLogs
-let timerIdCars
-let currentTime = 20
+let timerId
+let currentTime = 15
 
 function moveTomato(e) {
 
   squares[currentSquare].classList.remove('tomato')
 
+  // tomate controls
   switch (e.key) {
     case 'ArrowLeft':
       if (currentSquare % width !== 0) currentSquare -= 1;
@@ -44,7 +44,7 @@ function moveTomato(e) {
 }
 document.addEventListener('keyup', moveTomato)
 
-function autoMoveLogs() {
+function autoMoveElements() {
   currentTime--
   timeLeftDispley.textContent = currentTime
   logsLeft.forEach((logLeft) => {
@@ -52,6 +52,12 @@ function autoMoveLogs() {
   })
   logsRight.forEach((logRight) => {
     moveLogRight(logRight)
+  })
+  carsLeft.forEach((carLeft) => {
+    moveCarLeft(carLeft)
+  })
+  carsRight.forEach((carRight) => {
+    moveCarRight(carRight)
   })
   lose()
   win()
@@ -107,19 +113,16 @@ function moveLogRight(logRight) {
   }
 }
 
-timerIdLogs = setInterval(autoMoveLogs, 1000)
-
-
-function autoMoveCars() {
-  carsLeft.forEach((carLeft) => {
-    moveCarLeft(carLeft)
-  })
-  carsRight.forEach((carRight) => {
-    moveCarRight(carRight)
-  })
-  lose()
-  win()
-}
+// function autoMoveCars() {
+//   carsLeft.forEach((carLeft) => {
+//     moveCarLeft(carLeft)
+//   })
+//   carsRight.forEach((carRight) => {
+//     moveCarRight(carRight)
+//   })
+//   lose()
+//   win()
+// }
 
 function moveCarLeft(carLeft) {
   switch (true) {
@@ -164,8 +167,7 @@ function lose() {
       currentTime <= 0
   ) {
       resultDisplay.textContent = 'You lose!'
-      clearInterval(timerIdLogs)
-      clearInterval(timerIdCars)
+      clearInterval(timerId)
       squares[currentSquare].classList.remove('tomato')
       document.removeEventListener('keyup', moveTomato)
   }
@@ -176,19 +178,19 @@ function win() {
       squares[currentSquare].classList.contains('ending-block')
   ) {
       resultDisplay.textContent = 'You WIN!'
-      clearInterval(timerIdLogs)
-      clearInterval(timerIdCars)
+      clearInterval(timerId)
       // squares[currentSquare].classList.remove('tomato')
       document.removeEventListener('keyup', moveTomato)
   }
 }
 
-timerIdCars = setInterval(autoMoveCars, 1000)
-
 mainButton.addEventListener('click', () => {
-  if (timerIdCars) {
-    clearInterval(timerIdCars)
+  console.log('clicked');
+  if (timerId) {
+    clearInterval(timerId)
   } else {
-    timerIdCars = setInterval()
+    timerId = setInterval(autoMoveElements, 1000)
   }
 })
+
+// timerId = setInterval(autoMoveElements, 1000)
