@@ -14,7 +14,6 @@ let timerId
 let currentTime = 15
 
 function moveTomato(e) {
-
   squares[currentSquare].classList.remove('tomato')
 
   // tomate controls
@@ -40,9 +39,7 @@ function moveTomato(e) {
   // console.log(`Width: ${width}`);
   // console.log(currentSquare % width < width - 1);
   squares[currentSquare].classList.add('tomato')
-
 }
-document.addEventListener('keyup', moveTomato)
 
 function autoMoveElements() {
   currentTime--
@@ -188,8 +185,11 @@ mainButton.addEventListener('click', () => {
   console.log('clicked');
   if (timerId) {
     clearInterval(timerId)
+    timerId = null
+    document.removeEventListener('keyup', moveTomato)
   } else {
-    timerId = setInterval(autoMoveElements, 1000)
+    timerId = setInterval(autoMoveElements, 900)
+    document.addEventListener('keyup', moveTomato)
   }
 })
 
