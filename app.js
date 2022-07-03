@@ -1,5 +1,6 @@
 const timeLeftDispley = document.querySelector('#time-left')
 const resultDisplay = document.querySelector('#result')
+const messageDisplay = document.querySelector('#message')
 const mainButton = document.querySelector('#main-button')
 const squares = document.querySelectorAll('.grid div')
 const logsLeft = document.querySelectorAll('.log-left')
@@ -11,6 +12,7 @@ const carsRight = document.querySelectorAll('.car-right')
 let currentSquare = 76
 const width = 9
 let timerId
+let outcomeTimerId
 let currentTime = 15
 
 function moveTomato(e) {
@@ -19,19 +21,20 @@ function moveTomato(e) {
   // tomate controls
   switch (e.key) {
     case 'ArrowLeft':
-      if (currentSquare % width !== 0) currentSquare -= 1;
+      if (currentSquare % width !== 0) {currentSquare -= 1};
       break
     case 'ArrowRight':
-      if (currentSquare % width < (width - 1)) currentSquare += 1;
+      if (currentSquare % width < (width - 1)) {currentSquare += 1};
       break
     case 'ArrowUp':
-      if (currentSquare - width >= 0) currentSquare -= width;
+      if (currentSquare - width >= 0) {currentSquare -= width};
       break
     case 'ArrowDown':
-      if (currentSquare + width < width * width) currentSquare += width;
+      if (currentSquare + width < width * width) {currentSquare += width};
       break
     default:
-      console.log('invalid key');
+      console.log(e.key);
+      messageDisplay.textContent = 'Use arrow keys!'
   }
 
   // console.log(`Index: ${currentSquare}`);
@@ -56,6 +59,9 @@ function autoMoveElements() {
   carsRight.forEach((carRight) => {
     moveCarRight(carRight)
   })
+}
+
+function checkOutcomes() {
   lose()
   win()
 }
@@ -165,6 +171,7 @@ function lose() {
   ) {
       resultDisplay.textContent = 'You lose!'
       clearInterval(timerId)
+      clearInterval(outcomeTimerId)
       squares[currentSquare].classList.remove('tomato')
       document.removeEventListener('keyup', moveTomato)
   }
@@ -176,6 +183,7 @@ function win() {
   ) {
       resultDisplay.textContent = 'You WIN!'
       clearInterval(timerId)
+      clearInterval(outcomeTimerId)
       // squares[currentSquare].classList.remove('tomato')
       document.removeEventListener('keyup', moveTomato)
   }
@@ -185,10 +193,13 @@ mainButton.addEventListener('click', () => {
   console.log('clicked');
   if (timerId) {
     clearInterval(timerId)
+    clearInterval(outcomeTimerId)
     timerId = null
+    outcomeTimerId = null
     document.removeEventListener('keyup', moveTomato)
   } else {
     timerId = setInterval(autoMoveElements, 900)
+    outcomeTimerId = setInterval(checkOutcomes, 50)
     document.addEventListener('keyup', moveTomato)
   }
 })

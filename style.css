@@ -17,6 +17,16 @@ body {
   flex-wrap: wrap;
   /* background-color: aliceblue; */
 }
+#logo {
+  /* background-color: red; */
+  padding: 5px 10px;
+  margin: 0;
+}
+
+#message {
+  color: #edd7d7;
+  font-size: 2rem;
+}
 
 .grid div {
   height: 40px;
@@ -42,26 +52,35 @@ body {
 }
 
 #link-yt {
-  text-align: center;
   color: #d4d4d4;
   text-decoration: none;
-  font-size: 1.8rem;
-  border: 1px solid #d4d4d4;
-  padding: 0.5rem 2rem;
-  border-radius: 30px;
+  font-size: 1.2rem;
   margin-top: 10px;
+}
+
+.container {
+  width: 800px;
+  margin:  0 auto;
 }
 
 #link-yt:hover {
   color: #ffffff;
-  border: 1px solid white;
 }
 
-.link-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#main-button {
+  color: black;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px 15px;
+  text-decoration: none;
+  border: 0
 }
+
+#main-button:hover {
+  background-color: rgb(209, 209, 209);
+}
+
 .l1, .l2, .l3 {
   background-color: rgb(121, 28, 28);
 }
