@@ -1,10 +1,10 @@
 h1 {
   text-align: center;
-  color: #d4d4d4;
+  color: #a45353;
 }
 
 body {
-  background-color: #6c6c6c;
+  background-color: #e5e5c8;
   margin: 0;
 }
 
@@ -15,7 +15,7 @@ body {
   width: 360px;
   display: flex;
   flex-wrap: wrap;
-  /* background-color: aliceblue; */
+  background-color: #56c945e0;
 }
 #logo {
   /* background-color: red; */
@@ -52,7 +52,7 @@ body {
 }
 
 #link-yt {
-  color: #d4d4d4;
+  color: #832c2c;
   text-decoration: none;
   font-size: 1.2rem;
   margin-top: 10px;
@@ -68,17 +68,19 @@ body {
 }
 
 #main-button {
-  color: black;
+  color: #e6e6e6;
   font-size: 20px;
   border-radius: 5px;
-  background-color: white;
+  background-color: #973636;
   padding: 5px 15px;
   text-decoration: none;
-  border: 0
+  border: 0;
+  transition: 0.2s;
 }
 
 #main-button:hover {
-  background-color: rgb(209, 209, 209);
+  background-color: #b94f4f;
+  transition: 0.2s;
 }
 
 .l1, .l2, .l3 {
